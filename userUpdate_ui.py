@@ -16,37 +16,37 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QDialog, QFormLayout, QHeaderView,
-    QLabel, QLineEdit, QSizePolicy, QTableView,
-    QWidget)
+    QLabel, QLineEdit, QPushButton, QSizePolicy,
+    QTableView, QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(240, 427)
-        self.tableView = QTableView(Dialog)
-        self.tableView.setObjectName(u"tableView")
-        self.tableView.setGeometry(QRect(0, 0, 241, 171))
+        Dialog.resize(255, 400)
+        self.userList = QTableView(Dialog)
+        self.userList.setObjectName(u"userList")
+        self.userList.setGeometry(QRect(0, 0, 251, 211))
         self.formLayoutWidget = QWidget(Dialog)
         self.formLayoutWidget.setObjectName(u"formLayoutWidget")
-        self.formLayoutWidget.setGeometry(QRect(10, 180, 229, 131))
+        self.formLayoutWidget.setGeometry(QRect(10, 230, 231, 131))
         self.formLayout_2 = QFormLayout(self.formLayoutWidget)
         self.formLayout_2.setObjectName(u"formLayout_2")
         self.formLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.lineEdit_3 = QLineEdit(self.formLayoutWidget)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
+        self.userRegistration = QLineEdit(self.formLayoutWidget)
+        self.userRegistration.setObjectName(u"userRegistration")
 
-        self.formLayout_2.setWidget(2, QFormLayout.ItemRole.FieldRole, self.lineEdit_3)
+        self.formLayout_2.setWidget(2, QFormLayout.ItemRole.FieldRole, self.userRegistration)
 
-        self.lineEdit_4 = QLineEdit(self.formLayoutWidget)
-        self.lineEdit_4.setObjectName(u"lineEdit_4")
+        self.userName = QLineEdit(self.formLayoutWidget)
+        self.userName.setObjectName(u"userName")
 
-        self.formLayout_2.setWidget(1, QFormLayout.ItemRole.FieldRole, self.lineEdit_4)
+        self.formLayout_2.setWidget(1, QFormLayout.ItemRole.FieldRole, self.userName)
 
-        self.lineEdit = QLineEdit(self.formLayoutWidget)
-        self.lineEdit.setObjectName(u"lineEdit")
+        self.userId = QLineEdit(self.formLayoutWidget)
+        self.userId.setObjectName(u"userId")
 
-        self.formLayout_2.setWidget(0, QFormLayout.ItemRole.FieldRole, self.lineEdit)
+        self.formLayout_2.setWidget(0, QFormLayout.ItemRole.FieldRole, self.userId)
 
         self.label = QLabel(self.formLayoutWidget)
         self.label.setObjectName(u"label")
@@ -63,16 +63,22 @@ class Ui_Dialog(object):
 
         self.formLayout_2.setWidget(3, QFormLayout.ItemRole.LabelRole, self.label_3)
 
-        self.lineEdit_2 = QLineEdit(self.formLayoutWidget)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.userEmail = QLineEdit(self.formLayoutWidget)
+        self.userEmail.setObjectName(u"userEmail")
 
-        self.formLayout_2.setWidget(3, QFormLayout.ItemRole.FieldRole, self.lineEdit_2)
+        self.formLayout_2.setWidget(3, QFormLayout.ItemRole.FieldRole, self.userEmail)
 
         self.label_4 = QLabel(self.formLayoutWidget)
         self.label_4.setObjectName(u"label_4")
 
         self.formLayout_2.setWidget(2, QFormLayout.ItemRole.LabelRole, self.label_4)
 
+        self.userUpdateButton = QPushButton(Dialog)
+        self.userUpdateButton.setObjectName(u"userUpdateButton")
+        self.userUpdateButton.setGeometry(QRect(160, 370, 81, 26))
+        self.label_5 = QLabel(Dialog)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setGeometry(QRect(10, 210, 221, 16))
 
         self.retranslateUi(Dialog)
 
@@ -85,5 +91,7 @@ class Ui_Dialog(object):
         self.label_2.setText(QCoreApplication.translate("Dialog", u"Nome", None))
         self.label_3.setText(QCoreApplication.translate("Dialog", u"Email", None))
         self.label_4.setText(QCoreApplication.translate("Dialog", u"Matr\u00edcula", None))
+        self.userUpdateButton.setText(QCoreApplication.translate("Dialog", u"Salvar", None))
+        self.label_5.setText(QCoreApplication.translate("Dialog", u"\u00cdnsira o ID do aluno que deseja modificar", None))
     # retranslateUi
 

@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>300</width>
-    <height>300</height>
+    <width>400</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -21,14 +21,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>300</width>
-    <height>300</height>
+    <width>400</width>
+    <height>400</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>300</width>
-    <height>300</height>
+    <width>400</width>
+    <height>400</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -45,8 +45,29 @@
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_3">
+     <item row="3" column="0">
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>Lista de alunos</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="text">
+        <string>Atualizar aluno</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="pushButton_4">
+       <property name="text">
+        <string>Excluir aluno</string>
+       </property>
+      </widget>
+     </item>
      <item row="0" column="0">
-      <widget class="QPushButton" name="registerButton">
+      <widget class="QPushButton" name="pushButton">
        <property name="autoFillBackground">
         <bool>false</bool>
        </property>
@@ -55,28 +76,27 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="0">
-      <widget class="QPushButton" name="listButton">
+     <item row="4" column="0">
+      <widget class="QPushButton" name="pushButton_5">
        <property name="text">
-        <string>Lista de alunos</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QPushButton" name="updateButton">
-       <property name="text">
-        <string>Atualizar aluno</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QPushButton" name="deleteButton">
-       <property name="text">
-        <string>Excluir aluno</string>
+        <string>Sair</string>
        </property>
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>0</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string> Registrador de alunos</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -84,16 +104,10 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>300</width>
-     <height>33</height>
+     <width>400</width>
+     <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menu_Registrador_de_alunos">
-    <property name="title">
-     <string> Registrador de alunos</string>
-    </property>
-   </widget>
-   <addaction name="menu_Registrador_de_alunos"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

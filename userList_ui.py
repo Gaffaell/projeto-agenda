@@ -22,10 +22,10 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(240, 320)
-        self.tableView = QTableView(Dialog)
-        self.tableView.setObjectName(u"tableView")
-        self.tableView.setGeometry(QRect(0, 10, 241, 301))
+        Dialog.resize(257, 320)
+        self.userList = QTableView(Dialog)
+        self.userList.setObjectName(u"userList")
+        self.userList.setGeometry(QRect(10, 10, 241, 301))
 
         self.retranslateUi(Dialog)
 

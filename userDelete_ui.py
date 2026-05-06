@@ -23,10 +23,10 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(240, 320)
+        Dialog.resize(240, 323)
         self.formLayoutWidget = QWidget(Dialog)
         self.formLayoutWidget.setObjectName(u"formLayoutWidget")
-        self.formLayoutWidget.setGeometry(QRect(10, 250, 221, 31))
+        self.formLayoutWidget.setGeometry(QRect(10, 250, 221, 34))
         self.formLayout = QFormLayout(self.formLayoutWidget)
         self.formLayout.setObjectName(u"formLayout")
         self.formLayout.setContentsMargins(0, 0, 0, 0)
@@ -35,17 +35,17 @@ class Ui_Dialog(object):
 
         self.formLayout.setWidget(1, QFormLayout.ItemRole.LabelRole, self.label)
 
-        self.lineEdit = QLineEdit(self.formLayoutWidget)
-        self.lineEdit.setObjectName(u"lineEdit")
+        self.userId = QLineEdit(self.formLayoutWidget)
+        self.userId.setObjectName(u"userId")
 
-        self.formLayout.setWidget(1, QFormLayout.ItemRole.FieldRole, self.lineEdit)
+        self.formLayout.setWidget(1, QFormLayout.ItemRole.FieldRole, self.userId)
 
-        self.pushButton = QPushButton(Dialog)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(150, 290, 81, 26))
-        self.tableView = QTableView(Dialog)
-        self.tableView.setObjectName(u"tableView")
-        self.tableView.setGeometry(QRect(0, 0, 241, 241))
+        self.deleteUsertButton = QPushButton(Dialog)
+        self.deleteUsertButton.setObjectName(u"deleteUsertButton")
+        self.deleteUsertButton.setGeometry(QRect(150, 290, 81, 26))
+        self.userList = QTableView(Dialog)
+        self.userList.setObjectName(u"userList")
+        self.userList.setGeometry(QRect(0, 0, 241, 241))
 
         self.retranslateUi(Dialog)
 
@@ -55,6 +55,6 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
         self.label.setText(QCoreApplication.translate("Dialog", u"ID aluno", None))
-        self.pushButton.setText(QCoreApplication.translate("Dialog", u"Excluir aluno", None))
+        self.deleteUsertButton.setText(QCoreApplication.translate("Dialog", u"Excluir aluno", None))
     # retranslateUi
 

@@ -88,4 +88,6 @@ class Ui_MainWindow(object):
         self.deleteButton.setText(QCoreApplication.translate("MainWindow", u"Excluir aluno", None))
         self.menu_Registrador_de_alunos.setTitle(QCoreApplication.translate("MainWindow", u" Registrador de alunos", None))
     # retranslateUi
+    def openDialog(self, dialog):
+        dialog.exec_()
 

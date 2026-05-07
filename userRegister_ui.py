@@ -8,6 +8,7 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
+from dataBaseConnection import Database
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
@@ -16,7 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QDialog, QFormLayout, QLabel,
-    QLineEdit, QPushButton, QSizePolicy, QWidget)
+    QLineEdit, QMessageBox, QPushButton, QSizePolicy, QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -24,6 +25,7 @@ class Ui_Dialog(object):
             Dialog.setObjectName(u"Dialog")
         Dialog.resize(320, 180)
         self.saveUserButton = QPushButton(Dialog)
+        self.saveUserButton.clicked.connect(self.getInputData)
         self.saveUserButton.setObjectName(u"saveUserButton")
         self.saveUserButton.setGeometry(QRect(230, 140, 81, 26))
         self.layoutWidget = QWidget(Dialog)
@@ -75,4 +77,25 @@ class Ui_Dialog(object):
         self.label_2.setText(QCoreApplication.translate("Dialog", u"Matr\u00edcula", None))
         self.label.setText(QCoreApplication.translate("Dialog", u"Nome", None))
     # retranslateUi
+    
+    def getInputData(self):
+        name = self.userName.text()
+        registration = self.userRegistration.text()
+        email = self.userEmail.text()
+        self.userEmail.clear()
+        self.userRegistration.clear()
+        self.userName.clear()
+        msg = QMessageBox()
+        msg.setText("Usuário cadastrado com sucesso!")
+        msg.setInformativeText('Nome: ' + name + '\n' + 'Matrícula: ' + registration + '\n' + 'Email: ' + email)
+        msg.setWindowTitle("Sucesso")
+        msg.exec()
+        self.sendDataToDatabase(name, email, registration)
+
+    def sendDataToDatabase(self, name, email, registration):
+        query = f"INSERT INTO agenda (nome, email, matricula) VALUES ('{name}', '{email}', '{registration}')"
+        db = Database()
+        results = db.execute_query(query)
+        print(results)
+        db.close()
 

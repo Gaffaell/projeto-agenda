@@ -17,10 +17,16 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(313, 174)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(Dialog.sizePolicy().hasHeightForWidth())
+        Dialog.setSizePolicy(sizePolicy)
+        Dialog.setMinimumSize(QtCore.QSize(313, 174))
+        Dialog.setMaximumSize(QtCore.QSize(313, 174))
         self.saveUserButton = QtWidgets.QPushButton(Dialog)
         self.saveUserButton.setGeometry(QtCore.QRect(230, 140, 81, 26))
         self.saveUserButton.setObjectName("saveUserButton")
-        self.saveUserButton.clicked.connect(self.getInputData)
         self.layoutWidget = QtWidgets.QWidget(Dialog)
         self.layoutWidget.setGeometry(QtCore.QRect(10, 10, 301, 119))
         self.layoutWidget.setObjectName("layoutWidget")
@@ -56,7 +62,7 @@ class Ui_Dialog(object):
         self.label_3.setText(_translate("Dialog", "Email"))
         self.label_2.setText(_translate("Dialog", "Matrícula"))
         self.label.setText(_translate("Dialog", "Nome"))
-    
+
     def getInputData(self):
         name = self.userName.text()
         registration = self.userRegistration.text()

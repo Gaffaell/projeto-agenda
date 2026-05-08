@@ -2,8 +2,10 @@
 # -*- coding: utf-8 -*-
 
 from dataBaseConnection import Database
+from PyQt5 import QtGui, QtWidgets
+from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog
+from PyQt5.QtGui import QStandardItemModel, QStandardItem
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow, QDialog
 from main_ui import Ui_MainWindow
 from userRegister_ui import Ui_Dialog as Ui_RegisterDialog
 from userList_ui import Ui_Dialog as Ui_ListDialog
@@ -22,11 +24,22 @@ class ListDialog(QDialog):
         super().__init__()
         self.ui = Ui_ListDialog()
         self.ui.setupUi(self)
-        query = "SELECT * FROM agenda"
-        db = Database()
-        results = db.fetch_all(query)
-        print(results)
-        db.close()
+
+        data = Database().loadData()
+        
+        # Create a model
+        model = QStandardItemModel()
+        
+        # Set column headers (adjust based on your database columns)
+        model.setHorizontalHeaderLabels(["Nome", "Email", "Matrícula", "ID"])
+        
+        # Populate table with data
+        for row in data:
+            items = [QStandardItem(str(cell)) for cell in row]
+            model.appendRow(items)
+        
+        # Set the model to the table view
+        self.ui.userList.setModel(model)
 
 
 class UpdateDialog(QDialog):
@@ -34,12 +47,22 @@ class UpdateDialog(QDialog):
         super().__init__()
         self.ui = Ui_UpdateDialog()
         self.ui.setupUi(self)
-        # coloca uma forma de pegar os dados da aplicação
-        query = "UPDATE agenda SET nome = 'Gaffaell Updated' WHERE id = 2"
-        db = Database()
-        results = db.execute_query(query)
-        print(results)
-        db.close()
+
+        data = Database().loadData()
+        
+        # Create a model
+        model = QStandardItemModel()
+        
+        # Set column headers (adjust based on your database columns)
+        model.setHorizontalHeaderLabels(["Nome", "Email", "Matrícula", "ID"])
+        
+        # Populate table with data
+        for row in data:
+            items = [QStandardItem(str(cell)) for cell in row]
+            model.appendRow(items)
+        
+        # Set the model to the table view
+        self.ui.userList.setModel(model)
 
 
 
@@ -48,12 +71,22 @@ class DeleteDialog(QDialog):
         super().__init__()
         self.ui = Ui_DeleteDialog()
         self.ui.setupUi(self)
-        # coloca uma forma de pegar os dados da aplicação
-        query = "DELETE FROM agenda WHERE id = 1"
-        db = Database()
-        results = db.execute_query(query)
-        print(results)
-        db.close()
+        
+        data = Database().loadData()
+        
+        # Create a model
+        model = QStandardItemModel()
+        
+        # Set column headers (adjust based on your database columns)
+        model.setHorizontalHeaderLabels(["Nome", "Email", "Matrícula", "ID"])
+        
+        # Populate table with data
+        for row in data:
+            items = [QStandardItem(str(cell)) for cell in row]
+            model.appendRow(items)
+        
+        # Set the model to the table view
+        self.ui.userList.setModel(model)
 
 
 class MainWindow(QMainWindow):

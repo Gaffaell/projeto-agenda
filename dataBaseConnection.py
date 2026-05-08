@@ -21,3 +21,8 @@ class Database:
     def close(self):
         self.cursor.close()
         self.connection.close()
+    
+    def loadData(self, params=None):
+        query = "SELECT * FROM agenda"
+        self.cursor.execute(query, params)
+        return self.cursor.fetchall()

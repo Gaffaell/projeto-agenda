@@ -39,6 +39,7 @@ class Ui_Dialog(object):
         self.deleteUsertButton = QtWidgets.QPushButton(Dialog)
         self.deleteUsertButton.setGeometry(QtCore.QRect(310, 290, 121, 26))
         self.deleteUsertButton.setObjectName("deleteUsertButton")
+        self.deleteUsertButton.clicked.connect(self.getInputData)
         self.userList = QtWidgets.QTableView(Dialog)
         self.userList.setGeometry(QtCore.QRect(0, 0, 431, 241))
         self.userList.setObjectName("userList")

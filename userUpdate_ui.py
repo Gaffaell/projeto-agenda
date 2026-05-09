@@ -60,6 +60,7 @@ class Ui_Dialog(object):
         self.userUpdateButton = QtWidgets.QPushButton(Dialog)
         self.userUpdateButton.setGeometry(QtCore.QRect(340, 370, 81, 26))
         self.userUpdateButton.setObjectName("userUpdateButton")
+        self.userUpdateButton.clicked.connect(self.getInputData)
         self.label_5 = QtWidgets.QLabel(Dialog)
         self.label_5.setGeometry(QtCore.QRect(160, 210, 271, 16))
         self.label_5.setObjectName("label_5")

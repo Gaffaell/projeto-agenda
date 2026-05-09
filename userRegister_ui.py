@@ -27,6 +27,7 @@ class Ui_Dialog(object):
         self.saveUserButton = QtWidgets.QPushButton(Dialog)
         self.saveUserButton.setGeometry(QtCore.QRect(230, 140, 81, 26))
         self.saveUserButton.setObjectName("saveUserButton")
+        self.saveUserButton.clicked.connect(self.getInputData)
         self.layoutWidget = QtWidgets.QWidget(Dialog)
         self.layoutWidget.setGeometry(QtCore.QRect(10, 10, 301, 119))
         self.layoutWidget.setObjectName("layoutWidget")
